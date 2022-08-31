@@ -5,7 +5,7 @@ An opinionated rule set for [EasyCodingStandard](https://github.com/symplify/eas
 ## Installation
 
 ```shell
-composer require motley/ecs-config
+composer require --dev motley/ecs-config
 ```
 
 ## Usage
