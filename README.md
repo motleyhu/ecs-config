@@ -10,7 +10,7 @@ composer require --dev motley/ecs-config
 
 ## Usage
 
-In `ecs.php`:
+In your `ecs.php`:
 
 ```php
 // …
