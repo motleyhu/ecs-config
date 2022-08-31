@@ -1,0 +1,15 @@
+{
+    "name": "motley/ecs-config",
+    "description": "Rule Set for EasyCodingStandard",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.4",
+        "symplify/easy-coding-standard": "^11.1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Motley\\EasyCodingStandard\\": "src/"
+        }
+    }
+}
