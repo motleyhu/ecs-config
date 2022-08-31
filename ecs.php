@@ -39,7 +39,6 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->sets([SetList::PSR_12, SetList::CLEAN_CODE, SetList::DOCTRINE_ANNOTATIONS]);
 
     $ecsConfig->rules([
-        NoSuperfluousPhpdocTagsFixer::class,
         NoEmptyPhpdocFixer::class,
         PhpdocTrimFixer::class,
         ObjectOperatorWithoutWhitespaceFixer::class,
@@ -72,5 +71,9 @@ return static function (ECSConfig $ecsConfig): void {
         'elements' => [
             'method' => 'one',
         ],
+    ]);
+    $ecsConfig->ruleWithConfiguration(NoSuperfluousPhpdocTagsFixer::class, [
+        'allow_mixed' => true,
+        'remove_inheritdoc' => true,
     ]);
 };
