@@ -13,6 +13,7 @@ use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NoTrailingCommaInSinglelineFunctionCallFixer;
+use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer;
 use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
 use PhpCsFixer\Fixer\Import\FullyQualifiedStrictTypesFixer;
 use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
@@ -39,32 +40,33 @@ return static function (ECSConfig $ecsConfig): void {
     $ecsConfig->sets([SetList::PSR_12, SetList::CLEAN_CODE, SetList::DOCTRINE_ANNOTATIONS]);
 
     $ecsConfig->rules([
-        NoEmptyPhpdocFixer::class,
-        PhpdocTrimFixer::class,
-        ObjectOperatorWithoutWhitespaceFixer::class,
+        ArrayIndentationFixer::class,
+        BlankLineBeforeStatementFixer::class,
+        ClassCommentSniff::class,
+        CyclomaticComplexitySniff::class,
+        DeclareStrictTypesFixer::class,
+        FullyQualifiedStrictTypesFixer::class,
+        FunctionTypehintSpaceFixer::class,
+        GlobalNamespaceImportFixer::class,
+        HeredocIndentationFixer::class,
+        IsNullFixer::class,
+        LineLengthFixer::class,
+        MethodChainingIndentationFixer::class,
         NativeFunctionInvocationFixer::class,
-        TrailingCommaInMultilineFixer::class,
+        NestingLevelSniff::class,
+        NoEmptyPhpdocFixer::class,
+        NoExtraBlankLinesFixer::class,
         NoTrailingCommaInListCallFixer::class,
         NoTrailingCommaInSinglelineArrayFixer::class,
         NoTrailingCommaInSinglelineFunctionCallFixer::class,
-        FullyQualifiedStrictTypesFixer::class,
-        GlobalNamespaceImportFixer::class,
-        FunctionTypehintSpaceFixer::class,
-        ArrayIndentationFixer::class,
-        HeredocIndentationFixer::class,
+        NullableTypeDeclarationForDefaultNullValueFixer::class,
+        ObjectOperatorWithoutWhitespaceFixer::class,
         PhpdocIndentFixer::class,
-        MethodChainingIndentationFixer::class,
-        IsNullFixer::class,
-        BlankLineBeforeStatementFixer::class,
-        DeclareStrictTypesFixer::class,
-        ClassCommentSniff::class,
-        CyclomaticComplexitySniff::class,
-        NestingLevelSniff::class,
-        StandaloneLinePromotedPropertyFixer::class,
-        LineLengthFixer::class,
-        StaticLambdaFixer::class,
-        NoExtraBlankLinesFixer::class,
+        PhpdocTrimFixer::class,
         SingleLineCommentSpacingFixer::class,
+        StandaloneLinePromotedPropertyFixer::class,
+        StaticLambdaFixer::class,
+        TrailingCommaInMultilineFixer::class,
     ]);
 
     $ecsConfig->ruleWithConfiguration(ClassAttributesSeparationFixer::class, [
