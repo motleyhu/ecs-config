@@ -7,6 +7,7 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff;
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\ClassCommentSniff;
 use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
+use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 use PhpCsFixer\Fixer\Comment\SingleLineCommentSpacingFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoTrailingCommaInListCallFixer;
 use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
@@ -71,6 +72,9 @@ return static function (ECSConfig $ecsConfig): void {
         TrailingCommaInMultilineFixer::class,
     ]);
 
+    $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
+        'order' => ['use_trait', 'case', 'constant', 'property', 'construct', 'destruct', 'magic', 'method'],
+    ]);
     $ecsConfig->ruleWithConfiguration(ClassAttributesSeparationFixer::class, [
         'elements' => [
             'method' => 'one',
