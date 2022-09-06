@@ -15,6 +15,7 @@ use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NoTrailingCommaInSinglelineFunctionCallFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer;
 use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
+use PhpCsFixer\Fixer\FunctionNotation\UseArrowFunctionsFixer;
 use PhpCsFixer\Fixer\Import\FullyQualifiedStrictTypesFixer;
 use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer;
@@ -65,6 +66,7 @@ return static function (ECSConfig $ecsConfig): void {
         PhpdocTrimFixer::class,
         SingleLineCommentSpacingFixer::class,
         StandaloneLinePromotedPropertyFixer::class,
+        UseArrowFunctionsFixer::class,
         StaticLambdaFixer::class,
         TrailingCommaInMultilineFixer::class,
     ]);
