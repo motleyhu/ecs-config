@@ -75,8 +75,6 @@ return static function (ECSConfig $ecsConfig): void {
         StaticLambdaFixer::class,
         TrailingCommaInMultilineFixer::class,
         SingleQuoteFixer::class,
-        CamelCapsFunctionNameSniff::class,
-        CamelCapsMethodNameSniff::class,
         UpperCaseConstantNameSniff::class,
     ]);
 
