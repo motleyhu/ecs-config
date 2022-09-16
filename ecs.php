@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\CyclomaticComplexitySniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff;
+use PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\CamelCapsFunctionNameSniff;
+use PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff;
+use PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff;
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\ClassCommentSniff;
 use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
@@ -26,6 +29,7 @@ use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocIndentFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
+use PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer;
 use PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer;
 use PhpCsFixer\Fixer\Whitespace\BlankLineBeforeStatementFixer;
 use PhpCsFixer\Fixer\Whitespace\HeredocIndentationFixer;
@@ -70,6 +74,10 @@ return static function (ECSConfig $ecsConfig): void {
         UseArrowFunctionsFixer::class,
         StaticLambdaFixer::class,
         TrailingCommaInMultilineFixer::class,
+        SingleQuoteFixer::class,
+        CamelCapsFunctionNameSniff::class,
+        CamelCapsMethodNameSniff::class,
+        UpperCaseConstantNameSniff::class,
     ]);
 
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
