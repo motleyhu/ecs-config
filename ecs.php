@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\CyclomaticComplexitySniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff;
-use PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\CamelCapsFunctionNameSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff;
-use PHP_CodeSniffer\Standards\PSR1\Sniffs\Methods\CamelCapsMethodNameSniff;
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\ClassCommentSniff;
 use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
@@ -78,7 +76,7 @@ return static function (ECSConfig $ecsConfig): void {
     ]);
 
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
-        'elements' => ['arrays', 'arguments', 'parameters', 'match']
+        'elements' => PHP_MAJOR_VERSION < 8 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
     ]);
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
         'order' => ['use_trait', 'case', 'constant', 'property', 'construct', 'destruct', 'magic', 'method'],

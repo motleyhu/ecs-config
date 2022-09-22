@@ -18,7 +18,7 @@ use Motley\EasyCodingStandard\SetList as MotleySetList
 
 return static function (ECSConfig $ecsConfig): void {
     // Define paths, cache directory etc
-    
+
     $ecsConfig->sets([MotleySetList::MOTLEY]);
 
     // Override anything you wish, add exclusions etc
