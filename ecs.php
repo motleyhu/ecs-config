@@ -73,11 +73,13 @@ return static function (ECSConfig $ecsConfig): void {
         StandaloneLinePromotedPropertyFixer::class,
         UseArrowFunctionsFixer::class,
         StaticLambdaFixer::class,
-        TrailingCommaInMultilineFixer::class,
         SingleQuoteFixer::class,
         UpperCaseConstantNameSniff::class,
     ]);
 
+    $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
+        'elements' => ['arrays', 'arguments', 'parameters', 'match']
+    ]);
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
         'order' => ['use_trait', 'case', 'constant', 'property', 'construct', 'destruct', 'magic', 'method'],
     ]);
