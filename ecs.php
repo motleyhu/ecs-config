@@ -6,7 +6,9 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\CyclomaticComplexitySniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff;
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\ClassCommentSniff;
+use PhpCsFixer\Fixer\Alias\ModernizeStrposFixer;
 use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
+use PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 use PhpCsFixer\Fixer\Comment\SingleLineCommentSpacingFixer;
@@ -73,6 +75,8 @@ return static function (ECSConfig $ecsConfig): void {
         StaticLambdaFixer::class,
         SingleQuoteFixer::class,
         UpperCaseConstantNameSniff::class,
+        ModernizeTypesCastingFixer::class,
+        ModernizeStrposFixer::class,
     ]);
 
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
