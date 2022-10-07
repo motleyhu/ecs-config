@@ -76,11 +76,16 @@ return static function (ECSConfig $ecsConfig): void {
         SingleQuoteFixer::class,
         UpperCaseConstantNameSniff::class,
         ModernizeTypesCastingFixer::class,
-        ModernizeStrposFixer::class,
     ]);
 
+    $isPhp7 = PHP_MAJOR_VERSION < 8;
+
+    if (!$isPhp7) {
+        $ecsConfig->rule(ModernizeStrposFixer::class);
+    }
+
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
-        'elements' => PHP_MAJOR_VERSION < 8 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
+        'elements' => $isPhp7 < 8 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
     ]);
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
         'order' => ['use_trait', 'case', 'constant', 'property', 'construct', 'destruct', 'magic', 'method'],
