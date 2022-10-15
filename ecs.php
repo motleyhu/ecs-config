@@ -88,7 +88,7 @@ return static function (ECSConfig $ecsConfig): void {
         'elements' => $isPhp7 < 8 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
     ]);
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
-        'order' => ['use_trait', 'case', 'constant', 'property', 'construct', 'destruct', 'magic', 'method'],
+        'order' => ['use_trait', 'constant', 'case', 'property', 'construct', 'destruct', 'magic', 'method'],
     ]);
     $ecsConfig->ruleWithConfiguration(ClassAttributesSeparationFixer::class, [
         'elements' => [
