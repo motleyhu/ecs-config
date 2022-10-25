@@ -22,6 +22,7 @@ use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
 use PhpCsFixer\Fixer\FunctionNotation\UseArrowFunctionsFixer;
 use PhpCsFixer\Fixer\Import\FullyQualifiedStrictTypesFixer;
 use PhpCsFixer\Fixer\Import\GlobalNamespaceImportFixer;
+use PhpCsFixer\Fixer\LanguageConstruct\GetClassToClassKeywordFixer;
 use PhpCsFixer\Fixer\LanguageConstruct\IsNullFixer;
 use PhpCsFixer\Fixer\Operator\ObjectOperatorWithoutWhitespaceFixer;
 use PhpCsFixer\Fixer\Phpdoc\NoEmptyPhpdocFixer;
@@ -82,6 +83,7 @@ return static function (ECSConfig $ecsConfig): void {
 
     if (!$isPhp7) {
         $ecsConfig->rule(ModernizeStrposFixer::class);
+        $ecsConfig->rule(GetClassToClassKeywordFixer::class);
     }
 
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
