@@ -7,17 +7,15 @@ use PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\NamingConventions\UpperCaseConstantNameSniff;
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\ClassCommentSniff;
 use PhpCsFixer\Fixer\Alias\ModernizeStrposFixer;
-use PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer;
+use PhpCsFixer\Fixer\Basic\NoTrailingCommaInSinglelineFixer;
 use PhpCsFixer\Fixer\CastNotation\ModernizeTypesCastingFixer;
 use PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer;
 use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 use PhpCsFixer\Fixer\Comment\SingleLineCommentSpacingFixer;
-use PhpCsFixer\Fixer\ControlStructure\NoTrailingCommaInListCallFixer;
 use PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer;
 use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer;
-use PhpCsFixer\Fixer\FunctionNotation\NoTrailingCommaInSinglelineFunctionCallFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NoUselessSprintfFixer;
 use PhpCsFixer\Fixer\FunctionNotation\NullableTypeDeclarationForDefaultNullValueFixer;
 use PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer;
@@ -70,9 +68,7 @@ return static function (ECSConfig $ecsConfig): void {
         NestingLevelSniff::class,
         NoEmptyPhpdocFixer::class,
         NoExtraBlankLinesFixer::class,
-        NoTrailingCommaInListCallFixer::class,
-        NoTrailingCommaInSinglelineArrayFixer::class,
-        NoTrailingCommaInSinglelineFunctionCallFixer::class,
+        NoTrailingCommaInSinglelineFixer::class,
         NullableTypeDeclarationForDefaultNullValueFixer::class,
         ObjectOperatorWithoutWhitespaceFixer::class,
         PhpdocIndentFixer::class,
