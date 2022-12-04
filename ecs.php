@@ -97,7 +97,7 @@ return static function (ECSConfig $ecsConfig): void {
     }
 
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
-        'elements' => $isPhp7 < 8 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
+        'elements' => $isPhp7 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
     ]);
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
         'order' => ['use_trait', 'constant', 'case', 'property', 'construct', 'destruct', 'magic', 'method'],
