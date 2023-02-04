@@ -87,17 +87,12 @@ return static function (ECSConfig $ecsConfig): void {
         NoUselessReturnFixer::class,
         NoUselessSprintfFixer::class,
         PhpdocNoUselessInheritdocFixer::class,
+        ModernizeStrposFixer::class,
+        GetClassToClassKeywordFixer::class,
     ]);
 
-    $isPhp7 = PHP_MAJOR_VERSION < 8;
-
-    if (!$isPhp7) {
-        $ecsConfig->rule(ModernizeStrposFixer::class);
-        $ecsConfig->rule(GetClassToClassKeywordFixer::class);
-    }
-
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
-        'elements' => $isPhp7 ? ['arrays', 'arguments'] : ['arrays', 'arguments', 'parameters', 'match'],
+        'elements' => ['arrays', 'arguments', 'parameters', 'match'],
     ]);
     $ecsConfig->ruleWithConfiguration(OrderedClassElementsFixer::class, [
         'order' => ['use_trait', 'constant', 'case', 'property', 'construct', 'destruct', 'magic', 'method'],
