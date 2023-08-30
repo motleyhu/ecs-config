@@ -1,0 +1,12 @@
+version: 2
+updates:
+    - package-ecosystem: composer
+      directory: /
+      versioning-strategy: increase-if-necessary
+      allow:
+          - dependency-type: all
+      schedule:
+          interval: monthly
+          time: "03:00"
+      pull-request-branch-name:
+          separator: "-"
