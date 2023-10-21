@@ -1,8 +1,8 @@
 {
     "name": "motley/ecs-config",
     "description": "Rule Set for EasyCodingStandard",
-    "type": "library",
     "license": "MIT",
+    "type": "library",
     "require": {
         "php": "^8.1",
         "symplify/easy-coding-standard": "^12.0.7"
@@ -11,5 +11,8 @@
         "psr-4": {
             "Motley\\EasyCodingStandard\\": "src/"
         }
+    },
+    "scripts": {
+        "test:cs": "ecs check ecs.php src/"
     }
 }
