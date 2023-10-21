@@ -32,6 +32,7 @@ use PhpCsFixer\Fixer\Phpdoc\PhpdocIndentFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocNoUselessInheritdocFixer;
 use PhpCsFixer\Fixer\Phpdoc\PhpdocTrimFixer;
 use PhpCsFixer\Fixer\ReturnNotation\NoUselessReturnFixer;
+use PhpCsFixer\Fixer\Semicolon\MultilineWhitespaceBeforeSemicolonsFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer;
 use PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer;
@@ -91,6 +92,9 @@ return static function (ECSConfig $ecsConfig): void {
         GetClassToClassKeywordFixer::class,
     ]);
 
+    $ecsConfig->ruleWithConfiguration(MultilineWhitespaceBeforeSemicolonsFixer::class, [
+        'strategy' => 'new_line_for_chained_calls',
+    ]);
     $ecsConfig->ruleWithConfiguration(TrailingCommaInMultilineFixer::class, [
         'elements' => ['arrays', 'arguments', 'parameters', 'match'],
     ]);
